@@ -1,0 +1,1096 @@
+/* Birthday Theme Design System - Romantic & Elegant */
+
+:root {
+    /* Romantic Birthday Color Palette */
+    --background: hsl(350, 100%, 98%);
+    --foreground: hsl(340, 35%, 15%);
+    --card: hsl(350, 100%, 99%);
+    --card-foreground: hsl(340, 35%, 15%);
+    --primary: hsl(15, 45%, 65%);
+    --primary-foreground: hsl(350, 100%, 98%);
+    --primary-glow: hsl(15, 60%, 75%);
+    --secondary: hsl(340, 25%, 92%);
+    --secondary-foreground: hsl(340, 35%, 15%);
+    --muted: hsl(340, 15%, 95%);
+    --muted-foreground: hsl(340, 15%, 45%);
+    --accent: hsl(330, 40%, 85%);
+    --accent-foreground: hsl(340, 35%, 15%);
+    --border: hsl(340, 15%, 88%);
+
+    /* Beautiful Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(15, 45%, 65%), hsl(15, 60%, 75%), hsl(330, 40%, 85%));
+    --gradient-romantic: linear-gradient(135deg, hsl(340, 40%, 85%), hsl(350, 50%, 90%), hsl(15, 60%, 95%));
+    --gradient-hero: linear-gradient(180deg, hsl(350, 100%, 98%), hsl(340, 25%, 92%));
+    --gradient-glow: radial-gradient(circle, hsl(15, 60%, 75%, 0.4), hsl(330, 40%, 85%, 0.2), transparent);
+    --gradient-shimmer: linear-gradient(45deg, transparent 30%, hsl(15, 60%, 75%, 0.5) 50%, transparent 70%);
+    
+    /* Elegant Shadows */
+    --shadow-romantic: 0 20px 60px -10px hsl(15, 45%, 65%, 0.4);
+    --shadow-glow: 0 0 60px hsl(15, 60%, 75%, 0.6);
+    --shadow-soft: 0 8px 30px hsl(340, 25%, 80%, 0.3);
+    --shadow-floating: 0 15px 40px hsl(330, 40%, 85%, 0.4);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--gradient-romantic);
+    color: var(--foreground);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Utility Classes */
+.romantic-gradient {
+    background: var(--gradient-primary);
+}
+
+.hero-gradient {
+    background: var(--gradient-hero);
+}
+
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.soft-shadow {
+    box-shadow: var(--shadow-soft);
+}
+
+.floating-shadow {
+    box-shadow: var(--shadow-floating);
+}
+
+.glow-effect {
+    box-shadow: var(--shadow-glow);
+}
+
+.shimmer-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-shimmer);
+    animation: shimmer 3s infinite;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) scale(1); 
+    }
+    33% { 
+        transform: translateY(-15px) scale(1.05); 
+    }
+    66% { 
+        transform: translateY(-8px) scale(0.98); 
+    }
+}
+
+@keyframes heartPulse {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+        filter: brightness(1);
+    }
+    50% { 
+        transform: scale(1.2) rotate(5deg); 
+        filter: brightness(1.2);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% { 
+        transform: scale(0) rotate(0deg); 
+        opacity: 0;
+    }
+    50% { 
+        transform: scale(1) rotate(180deg); 
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.6; 
+        transform: scale(1.02);
+    }
+}
+
+.floating-animation {
+    animation: float 4s ease-in-out infinite;
+}
+
+.heart-pulse {
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+.sparkle-animation {
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease-out;
+}
+
+.rotate-slow {
+    animation: rotate 20s linear infinite;
+}
+
+.hover-lift {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-floating);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.particle-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-glow);
+    opacity: 0.3;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+    opacity: 0.9;
+}
+
+.floating-sparkles,
+.floating-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.floating-sparkles svg,
+.floating-stars svg {
+    position: absolute;
+    color: var(--primary);
+    opacity: 0.4;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.floating-stars svg {
+    color: var(--accent);
+    opacity: 0.3;
+    animation: float 4s ease-in-out infinite;
+}
+
+.decorative-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: float 4s ease-in-out infinite;
+}
+
+.circle-1 {
+    top: 5rem;
+    left: 5rem;
+    width: 16rem;
+    height: 16rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    opacity: 0.2;
+}
+
+.circle-2 {
+    bottom: 5rem;
+    right: 5rem;
+    width: 12rem;
+    height: 12rem;
+    background: linear-gradient(225deg, var(--accent), var(--primary));
+    opacity: 0.2;
+    animation-delay: 2s;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 5rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Photo Section */
+.photo-section {
+    position: relative;
+}
+
+.photo-container {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+    .photo-container {
+        width: 24rem;
+        height: 24rem;
+    }
+}
+
+.rotating-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 4px dashed var(--primary);
+    opacity: 0.3;
+    animation: rotate 20s linear infinite;
+}
+
+.main-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow-romantic);
+    transition: all 0.5s ease;
+}
+
+.main-image-container:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-8px) scale(1.02);
+}
+
+.birthday-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.main-image-container:hover .birthday-image {
+    transform: scale(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--primary), transparent, var(--accent));
+    opacity: 0.3;
+}
+
+.floating-heart {
+    position: absolute;
+    color: var(--primary);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+.heart-1 {
+    top: -1.5rem;
+    right: -1.5rem;
+}
+
+.heart-2 {
+    bottom: -2rem;
+    left: -2rem;
+    color: var(--accent);
+    animation-delay: 1s;
+}
+
+.heart-3 {
+    top: 2.5rem;
+    left: -1rem;
+    color: var(--primary-glow);
+    animation-delay: 0.5s;
+}
+
+.heart-4 {
+    bottom: -1rem;
+    right: 3rem;
+    color: var(--accent);
+    animation-delay: 1.5s;
+}
+
+/* Message Section */
+.message-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .message-section {
+        text-align: left;
+    }
+}
+
+.title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.main-title {
+    font-size: 3.75rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+@media (min-width: 1024px) {
+    .main-title {
+        font-size: 4.5rem;
+    }
+}
+
+.subtitle {
+    font-size: 1.875rem;
+    font-weight: 300;
+    color: var(--foreground);
+    opacity: 0.8;
+    letter-spacing: 0.025em;
+}
+
+@media (min-width: 1024px) {
+    .subtitle {
+        font-size: 2.25rem;
+    }
+}
+
+.title-divider {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .title-divider {
+        justify-content: flex-start;
+    }
+}
+
+.divider-line {
+    width: 8rem;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.message-card {
+    background: var(--card);
+    opacity: 0.6;
+    backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border);
+    opacity: 0.5;
+}
+
+.message-text {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--foreground);
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+@media (min-width: 1024px) {
+    .message-text {
+        font-size: 1.5rem;
+    }
+}
+
+.love-badge {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .love-badge {
+        justify-content: flex-start;
+    }
+}
+
+.badge-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--primary);
+    background: var(--card);
+    opacity: 0.4;
+    backdrop-filter: blur(8px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    box-shadow: var(--shadow-soft);
+}
+
+.badge-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+/* Wishes Section */
+.wishes-section {
+    padding: 6rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.wishes-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.bg-element {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 4s ease-in-out infinite;
+}
+
+.bg-1 {
+    top: 2.5rem;
+    left: 2.5rem;
+    width: 18rem;
+    height: 18rem;
+    background: linear-gradient(135deg, var(--primary), transparent);
+    opacity: 0.1;
+}
+
+.bg-2 {
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 16rem;
+    height: 16rem;
+    background: linear-gradient(225deg, var(--accent), transparent);
+    opacity: 0.1;
+    animation-delay: 2s;
+}
+
+.bg-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24rem;
+    height: 24rem;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    opacity: 0.05;
+    filter: blur(120px);
+    animation-delay: 1s;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: 3.75rem;
+    }
+}
+
+.section-divider {
+    width: 8rem;
+    height: 0.5rem;
+    margin: 0 auto;
+    border-radius: 9999px;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: var(--muted-foreground);
+    margin-top: 1.5rem;
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wishes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .wishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .wishes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.wish-card {
+    position: relative;
+    background: var(--card);
+    opacity: 0.7;
+    backdrop-filter: blur(8px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border);
+    opacity: 0.5;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.wish-card:hover {
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-8px) scale(1.02);
+}
+
+.wish-card-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    transition: opacity 0.5s ease;
+}
+
+.wish-card:hover .wish-card-bg {
+    opacity: 0.1;
+}
+
+.wish-content {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.wish-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.wish-icon {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+    background: var(--gradient-primary);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    transform: rotate(3deg);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.wish-card:hover .wish-icon {
+    transform: rotate(0deg);
+    box-shadow: var(--shadow-glow);
+}
+
+.wish-icon svg {
+    color: var(--primary-foreground);
+}
+
+.wish-sparkle {
+    position: absolute;
+    border-radius: 50%;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    top: -0.5rem;
+    right: -0.5rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: var(--primary);
+}
+
+.sparkle-2 {
+    bottom: -0.25rem;
+    left: -0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--accent);
+    animation-delay: 1s;
+}
+
+.wish-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    transition: all 0.3s ease;
+}
+
+.wish-card:hover .wish-title {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.wish-message {
+    color: var(--muted-foreground);
+    line-height: 1.7;
+    font-size: 1.125rem;
+}
+
+.wish-corner {
+    position: absolute;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    filter: blur(4px);
+}
+
+.corner-1 {
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    opacity: 0.2;
+}
+
+.corner-2 {
+    bottom: 1rem;
+    left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: linear-gradient(225deg, var(--accent), var(--primary));
+    opacity: 0.3;
+}
+
+.wish-card:hover .corner-1 {
+    transform: scale(1.25);
+}
+
+.wish-card:hover .corner-2 {
+    transform: scale(1.1);
+}
+
+.wishes-footer {
+    text-align: center;
+    margin-top: 4rem;
+    animation-delay: 1s;
+}
+
+.footer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card);
+    opacity: 0.5;
+    backdrop-filter: blur(8px);
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    box-shadow: var(--shadow-soft);
+}
+
+.footer-star {
+    color: var(--primary);
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.footer-star:nth-child(3) {
+    color: var(--accent);
+}
+
+.footer-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+/* Memory Section */
+.memory-section {
+    padding: 6rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.memory-background {
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+}
+
+.memory-bg-1 {
+    position: absolute;
+    top: 5rem;
+    left: 2.5rem;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), transparent);
+    opacity: 0.3;
+    filter: blur(40px);
+    animation: float 4s ease-in-out infinite;
+}
+
+.memory-bg-2 {
+    position: absolute;
+    bottom: 5rem;
+    right: 2.5rem;
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    background: linear-gradient(225deg, var(--accent), transparent);
+    opacity: 0.3;
+    filter: blur(40px);
+    animation: float 4s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.memory-bg-3 {
+    position: absolute;
+    top: 33.333333%;
+    right: 25%;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background: linear-gradient(to right, var(--primary-glow), transparent);
+    opacity: 0.2;
+    filter: blur(80px);
+    animation: float 4s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.floating-hearts {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.floating-hearts svg {
+    position: absolute;
+    color: var(--primary);
+    opacity: 0.2;
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+.memory-content {
+    max-width: 80rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.main-message-card {
+    position: relative;
+    background: var(--card);
+    opacity: 0.8;
+    backdrop-filter: blur(8px);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: var(--shadow-floating);
+    border: 1px solid var(--border);
+    opacity: 0.5;
+    overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+    .main-message-card {
+        padding: 4rem;
+    }
+}
+
+.card-bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    opacity: 0.05;
+}
+
+.card-top-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.25rem;
+}
+
+.quote-decoration {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    padding: 1rem;
+    background: var(--primary);
+    opacity: 0.1;
+    border-radius: 50%;
+}
+
+.quote-decoration svg {
+    color: var(--primary);
+}
+
+.sparkle {
+    position: absolute;
+    color: var(--accent);
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    top: 1.5rem;
+    right: 2rem;
+}
+
+.sparkle-2 {
+    bottom: 2rem;
+    left: 3rem;
+    color: var(--primary);
+    animation-delay: 1s;
+}
+
+.sparkle-3 {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    color: var(--primary-glow);
+    animation-delay: 0.5s;
+}
+
+.quote-content {
+    position: relative;
+    padding-top: 2rem;
+}
+
+.main-quote {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: var(--foreground);
+    opacity: 0.95;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .main-quote {
+        font-size: 1.875rem;
+    }
+}
+
+.quote-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.author-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--primary);
+    opacity: 0.1;
+    backdrop-filter: blur(8px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+}
+
+.author-heart {
+    color: var(--primary);
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+.author-text {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--primary);
+}
+
+.bottom-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    animation-delay: 0.3s;
+}
+
+@media (min-width: 768px) {
+    .bottom-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.bottom-card {
+    background: var(--card);
+    opacity: 0.6;
+    backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border);
+    opacity: 0.5;
+}
+
+.card-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--primary), var(--primary-glow));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon-secondary {
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+}
+
+.card-icon svg {
+    color: var(--primary-foreground);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.card-text {
+    color: var(--muted-foreground);
+    line-height: 1.7;
+}
+
+.final-message {
+    text-align: center;
+    animation-delay: 0.6s;
+}
+
+.final-card {
+    display: inline-block;
+    background: var(--card);
+    opacity: 0.5;
+    backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.final-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.final-hearts {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.final-hearts svg {
+    color: var(--primary);
+    animation: heartPulse 2s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .main-quote {
+        font-size: 1.25rem;
+    }
+    
+    .message-text {
+        font-size: 1.125rem;
+    }
+    
+    .photo-container {
+        width: 16rem;
+        height: 16rem;
+    }
+}
